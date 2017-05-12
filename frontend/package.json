@@ -1,0 +1,23 @@
+{
+  "name": "yii2-react-template",
+  "version": "0.1.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "Igor Lazarev <lazarev@lightsoft.ru>",
+  "contributors": [],
+  "dependencies": {},
+  "description": "Project template base on Yii2 as backend and ReactJS as frontend",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT"
+}

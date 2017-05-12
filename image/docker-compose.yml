@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    volumes:
+      - ../frontend:/project/frontend
+  backend:
+    container_name: backend
+    build: ./backend
+    volumes:
+      - ../backend:/project/backend
+    #ports:
+      #- "23:22"
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes_from:
+      - frontend
+      - backend
+    volumes:
+      - ./nginx/frontend.conf:/etc/nginx/conf.d/frontend.conf
+      - ./nginx/backend.conf:/etc/nginx/conf.d/backend.conf
+    depends_on:
+      - frontend
+      - backend
