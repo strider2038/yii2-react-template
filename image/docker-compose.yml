@@ -1,14 +1,16 @@
 version: '2'
 
 services:
-  frontend:
-    container_name: frontend
-    build: ./frontend
-    volumes:
-      - ../frontend:/project/frontend
+  # frontend:
+  #   container_name: frontend
+  #   build: ./frontend
+  #   volumes:
+  #     - ../frontend:/project/frontend
   backend:
     container_name: backend
-    build: ./backend
+    #image: php:fpm
+    #build: ./base/php
+    build: ./dev/php
     volumes:
       - ../backend:/project/backend
     #ports:
@@ -19,11 +21,10 @@ services:
     ports:
       - "80:80"
     volumes_from:
-      - frontend
+      #- frontend
       - backend
     volumes:
-      - ./nginx/frontend.conf:/etc/nginx/conf.d/frontend.conf
-      - ./nginx/backend.conf:/etc/nginx/conf.d/backend.conf
+      - ./dev/nginx/conf/project.conf:/etc/nginx/conf.d/project.conf
     depends_on:
-      - frontend
+      #- frontend
       - backend
